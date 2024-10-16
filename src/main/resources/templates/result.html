@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado da Consulta</title>
+</head>
+<body>
+<h1>Resultado receita</h1>
+
+<!-- Usar a tag <pre> para preservar as quebras de linha -->
+<pre th:text="${result}"></pre>
+
+<button onclick="window.location.href='/';">Voltar</button>
+</body>
+</html>

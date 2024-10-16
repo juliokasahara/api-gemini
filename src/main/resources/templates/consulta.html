@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta API Gemini</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Qual o prato que gostaria de aprender a fazer?</h1>
+    <form action="#" th:action="@{/consulta}" th:object="${geminiRequest}" method="post">
+        <label for="query">Gostaria de aprender a fazer:</label>
+        <input type="text" id="query" name="query" th:field="*{query}" required minlength="5">
+        <button type="submit">Consultar</button>
+    </form>
+
+    <div id="resultado">
+        <p th:if="${result != null}" th:text="'Resultado: ' + ${result}"></p>
+    </div>
+</div>
+</body>
+</html>
