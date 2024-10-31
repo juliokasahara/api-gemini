@@ -5,6 +5,7 @@ import com.br.chef.seuchef.client.request.ClientRequest;
 import com.br.chef.seuchef.client.request.GeminiRequest;
 import com.br.chef.seuchef.client.response.GeminiResponse;
 import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -42,7 +43,10 @@ public class GeminiWebController {
         return modelAndView;
     }
     private String chamarApiGemini(ClientRequest request) {
-        GeminiRequest.Content.Part part = new GeminiRequest.Content.Part("Gostaria de aprender a fazer " + request.getQuery());
+        GeminiRequest.Content.Part part = new GeminiRequest.Content.Part("chefe de cozinha," +
+                "qualquer coisa fora do assim culinario voce deve responder `Me desculpe sou apenas " +
+                "um chefe de cozinha.` voce deve responder somente receitas culinarias a pergunta é: " + request.getQuery());
+        System.out.println(part);
         GeminiRequest.Content content = new GeminiRequest.Content(Arrays.asList(part));
         GeminiRequest geminiRequest = new GeminiRequest(Arrays.asList(content));
 
